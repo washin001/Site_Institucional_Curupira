@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Entre em contato com a equipe do Projeto Curupira." />
+  <title>Contato · Curupira</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo">
+          <div class="navbar__logo-icon">🌿</div>
+          Curupira
+        </a>
+        <ul class="navbar__nav">
+          <li><a href="index.html"        class="nav-link">Home</a></li>
+          <li><a href="sobre.html"        class="nav-link">Sobre</a></li>
+          <li><a href="demonstracao.html" class="nav-link">Demonstração</a></li>
+          <li><a href="contato.html"      class="nav-link">Contato</a></li>
+        </ul>
+        <a href="demonstracao.html" class="btn btn-primary navbar__cta">Conheça o Projeto</a>
+        <button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <a href="index.html"        class="nav-link">Home</a>
+    <a href="sobre.html"        class="nav-link">Sobre</a>
+    <a href="demonstracao.html" class="nav-link">Demonstração</a>
+    <a href="contato.html"      class="nav-link">Contato</a>
+    <a href="demonstracao.html" class="btn btn-primary btn-lg">Conheça o Projeto</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">Fale Conosco</span>
+      <h1 class="section-title reveal">Entre em Contato</h1>
+      <p class="section-subtitle reveal reveal-delay-1">
+        Dúvidas sobre o projeto, interesse em parceria ou sugestões?
+        A equipe do Curupira está pronta para conversar.
+      </p>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Form -->
+        <div class="reveal">
+          <span class="section-label">Envie uma Mensagem</span>
+          <h2 class="section-title" style="margin-bottom: 0.5rem;">Vamos conversar?</h2>
+          <p style="font-size: 0.9rem; color: var(--gray-600); margin-bottom: 2rem; line-height: 1.6;">
+            Preencha o formulário abaixo e retornaremos em breve.
+          </p>
+
+          <div style="border-radius: var(--radius-lg); overflow: hidden; border: 1px solid var(--gray-200); box-shadow: var(--shadow-sm);">
+            <iframe
+              src="https://docs.google.com/forms/d/e/1FAIpQLSccnPWv4W4I24RAUoy_NCDRQ_USah8Ek9j7_kPhN5KfMI6X9g/viewform?embedded=true"
+              width="100%"
+              height="740"
+              frameborder="0"
+              marginheight="0"
+              marginwidth="0"
+              style="display: block;"
+              title="Formulário de Contato — Curupira"
+              loading="lazy">
+              Carregando formulário…
+            </iframe>
+          </div>
+        </div>
+
+        <!-- Info Card -->
+        <div class="reveal reveal-delay-2">
+          <div class="contact-info-card">
+            <h3>Projeto Curupira</h3>
+            <p>
+              Desenvolvido por estudantes do Tecnólogo em Análise e Desenvolvimento de Sistemas
+              do Instituto Federal de São Paulo — Campus Pirituba.
+            </p>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">🏛️</div>
+              <div>
+                <div class="contact-info-label">Instituição</div>
+                <div class="contact-info-value">IFSP — Campus Pirituba</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📚</div>
+              <div>
+                <div class="contact-info-label">Curso</div>
+                <div class="contact-info-value">Tecnólogo em ADS · PTBPEX2</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">👨‍🏫</div>
+              <div>
+                <div class="contact-info-label">Orientador</div>
+                <div class="contact-info-value">Prof. Luiz Roberto Albano Junior</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">📅</div>
+              <div>
+                <div class="contact-info-label">Ano</div>
+                <div class="contact-info-value">2025 / 2026</div>
+              </div>
+            </div>
+
+            <div class="contact-info-item">
+              <div class="contact-info-icon">🌍</div>
+              <div>
+                <div class="contact-info-label">Localização</div>
+                <div class="contact-info-value">São Paulo, SP — Brasil</div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Team quick cards -->
+          <div style="margin-top: 1.5rem; display: flex; flex-direction: column; gap: 0.6rem;">
+            <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; color: var(--gray-400); text-transform: uppercase; margin-bottom: 0.25rem;">A Equipe</div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem; background: var(--gray-100); border-radius: var(--radius-md); border: 1px solid var(--gray-200); transition: var(--transition);" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
+              <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--green), var(--green-dark)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; font-size: 0.9rem; flex-shrink: 0;">B</div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.88rem; color: var(--near-black);">Bruno Soares</div>
+                <div style="font-size: 0.75rem; color: var(--gray-600);">Desenvolvimento & IoT</div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem; background: var(--gray-100); border-radius: var(--radius-md); border: 1px solid var(--gray-200); transition: var(--transition);" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
+              <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--amber), #A07B00); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; font-size: 0.9rem; flex-shrink: 0;">M</div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.88rem; color: var(--near-black);">Matheus Zanqueta</div>
+                <div style="font-size: 0.75rem; color: var(--gray-600);">Design & Prototipação · PT3035875</div>
+              </div>
+            </div>
+
+            <div style="display: flex; align-items: center; gap: 0.75rem; padding: 0.9rem 1rem; background: var(--gray-100); border-radius: var(--radius-md); border: 1px solid var(--gray-200); transition: var(--transition);" onmouseover="this.style.borderColor='var(--green)'" onmouseout="this.style.borderColor='var(--gray-200)'">
+              <div style="width: 36px; height: 36px; background: linear-gradient(135deg, var(--violet), #3D0868); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; color: white; font-size: 0.9rem; flex-shrink: 0;">W</div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.88rem; color: var(--near-black);">Washington Sousa</div>
+                <div style="font-size: 0.75rem; color: var(--gray-600);">Arquitetura & Backend · PT303755X</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Perguntas Frequentes</span>
+        <h2 class="section-title reveal">Dúvidas comuns sobre o Curupira</h2>
+      </div>
+
+      <div style="max-width: 720px; margin: 3rem auto 0;" class="reveal">
+
+        <div style="border: 1px solid var(--gray-200); border-radius: var(--radius-lg); overflow: hidden;">
+
+          <details style="border-bottom: 1px solid var(--gray-200);">
+            <summary style="padding: 1.25rem 1.5rem; font-weight: 700; font-size: 0.95rem; color: var(--near-black); cursor: pointer; display: flex; justify-content: space-between; align-items: center; list-style: none;">
+              O Curupira já está disponível para uso?
+              <span style="color: var(--green); font-size: 1.2rem; transition: transform 0.3s;">+</span>
+            </summary>
+            <div style="padding: 0 1.5rem 1.25rem; font-size: 0.88rem; color: var(--gray-600); line-height: 1.65;">
+              O Curupira está em fase de MVP (Produto Mínimo Viável). Os protótipos navegáveis estão disponíveis
+              no Figma e a demonstração pode ser explorada neste site. O lançamento da versão completa está
+              previsto para o segundo semestre de 2026.
+            </div>
+          </details>
+
+          <details style="border-bottom: 1px solid var(--gray-200);">
+            <summary style="padding: 1.25rem 1.5rem; font-weight: 700; font-size: 0.95rem; color: var(--near-black); cursor: pointer; list-style: none;">
+              Qual é o custo para escolas utilizarem o Curupira?
+            </summary>
+            <div style="padding: 0 1.5rem 1.25rem; font-size: 0.88rem; color: var(--gray-600); line-height: 1.65;">
+              O modelo de negócio está sendo definido, mas o foco inicial é em soluções de baixo custo e acessíveis
+              para instituições públicas de ensino. A sustentabilidade financeira do projeto será abordada nas
+              próximas etapas de desenvolvimento.
+            </div>
+          </details>
+
+          <details style="border-bottom: 1px solid var(--gray-200);">
+            <summary style="padding: 1.25rem 1.5rem; font-weight: 700; font-size: 0.95rem; color: var(--near-black); cursor: pointer; list-style: none;">
+              Como funciona o módulo de compostagem inteligente?
+            </summary>
+            <div style="padding: 0 1.5rem 1.25rem; font-size: 0.88rem; color: var(--gray-600); line-height: 1.65;">
+              O módulo IoT utiliza sensores integrados a um microcontrolador Arduino para monitorar temperatura,
+              umidade e outros parâmetros da composteira em tempo real. Os dados são enviados para a nuvem e
+              exibidos em um dashboard no aplicativo, tornando o processo educativo e interativo.
+            </div>
+          </details>
+
+          <details>
+            <summary style="padding: 1.25rem 1.5rem; font-weight: 700; font-size: 0.95rem; color: var(--near-black); cursor: pointer; list-style: none;">
+              Como posso contribuir ou fazer parceria com o projeto?
+            </summary>
+            <div style="padding: 0 1.5rem 1.25rem; font-size: 0.88rem; color: var(--gray-600); line-height: 1.65;">
+              Entre em contato pelo formulário acima! Estamos abertos a parcerias com escolas, instituições de
+              ensino, empresas de tecnologia e organizações ambientais. Toda contribuição é bem-vinda para
+              expandir o impacto do Curupira.
+            </div>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo">
+            <div class="navbar__logo-icon">🌿</div>
+            Curupira
+          </a>
+          <p class="footer__tagline">Transformando sustentabilidade em experiência gamificada. Um projeto de extensão do IFSP Pirituba.</p>
+          <div class="footer__social">
+            <a href="#" class="social-icon">📷</a>
+            <a href="#" class="social-icon">💼</a>
+            <a href="#" class="social-icon">🐙</a>
+            <a href="#" class="social-icon">▶</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Navegação</div>
+          <ul class="footer__links">
+            <li><a href="index.html"        class="footer__link">Home</a></li>
+            <li><a href="sobre.html"        class="footer__link">Sobre o Projeto</a></li>
+            <li><a href="demonstracao.html" class="footer__link">Demonstração</a></li>
+            <li><a href="contato.html"      class="footer__link">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Projeto</div>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Funcionalidades</a></li>
+            <li><a href="#" class="footer__link">Arquitetura MVP</a></li>
+            <li><a href="#" class="footer__link">ODS Contempladas</a></li>
+            <li><a href="#" class="footer__link">Protótipos Figma</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Institucional</div>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">IFSP Pirituba</a></li>
+            <li><a href="#" class="footer__link">ADS — PTBPEX2</a></li>
+            <li><a href="#" class="footer__link">Prof. Luiz R. Albano Jr.</a></li>
+            <li><a href="#" class="footer__link">GITES</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copyright">© 2025 Projeto Curupira · IFSP Campus Pirituba. Todos os direitos reservados.</div>
+        <div class="footer__made">Feito com <span>♥</span> por Bruno, Matheus & Washington</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

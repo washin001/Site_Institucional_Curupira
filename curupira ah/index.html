@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Curupira — Plataforma gamificada que transforma tarefas sustentáveis em experiências motivadoras para estudantes." />
+  <title>Curupira — Sustentabilidade Gamificada</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       NAVBAR
+  ══════════════════════════════════════════════ -->
+  <nav class="navbar" role="navigation" aria-label="Navegação principal">
+    <div class="container">
+      <div class="navbar__inner">
+
+        <a href="index.html" class="navbar__logo" aria-label="Curupira — Página Inicial">
+          <div class="navbar__logo-icon">🌿</div>
+          Curupira
+        </a>
+
+        <ul class="navbar__nav" role="list">
+          <li><a href="index.html"       class="nav-link">Home</a></li>
+          <li><a href="sobre.html"       class="nav-link">Sobre</a></li>
+          <li><a href="demonstracao.html" class="nav-link">Demonstração</a></li>
+          <li><a href="contato.html"     class="nav-link">Contato</a></li>
+        </ul>
+
+        <a href="demonstracao.html" class="btn btn-primary navbar__cta">
+          Conheça o Projeto
+        </a>
+
+        <button class="hamburger" aria-label="Abrir menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav" aria-hidden="true">
+    <a href="index.html"        class="nav-link">Home</a>
+    <a href="sobre.html"        class="nav-link">Sobre</a>
+    <a href="demonstracao.html" class="nav-link">Demonstração</a>
+    <a href="contato.html"      class="nav-link">Contato</a>
+    <a href="demonstracao.html" class="btn btn-primary btn-lg">Conheça o Projeto</a>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════════
+       HERO
+  ══════════════════════════════════════════════ -->
+  <section class="hero" id="home" aria-label="Apresentação do projeto">
+
+    <div class="hero__mesh" aria-hidden="true">
+      <div class="hero__grid-lines"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero__inner">
+
+        <!-- Content -->
+        <div class="hero__content">
+
+          <div class="hero__badge">
+            <span class="hero__badge-dot"></span>
+            Projeto de Extensão · IFSP Pirituba · 2025
+          </div>
+
+          <h1 class="hero__title">
+            Transformando
+            <em>Sustentabilidade</em>
+            em Experiência Gamificada
+          </h1>
+
+          <p class="hero__subtitle">
+            O Curupira é uma plataforma digital que incentiva estudantes
+            a realizarem tarefas sustentáveis por meio de gamificação,
+            recompensas e um pet virtual.
+          </p>
+
+          <div class="hero__actions">
+            <a href="demonstracao.html" class="btn btn-primary btn-lg">
+              ▶ Ver Demonstração
+            </a>
+            <a href="sobre.html" class="btn btn-ghost btn-lg">
+              Saiba Mais
+            </a>
+          </div>
+
+          <div class="hero__stats">
+            <div class="hero__stat">
+              <div class="hero__stat-value" data-count="3" data-suffix="">3</div>
+              <div class="hero__stat-label">Sprints de Desenvolvimento</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-value" data-count="4" data-suffix="">4</div>
+              <div class="hero__stat-label">ODS Contempladas</div>
+            </div>
+            <div class="hero__stat">
+              <div class="hero__stat-value" data-count="30" data-suffix="+">30+</div>
+              <div class="hero__stat-label">Tarefas Sustentáveis</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Visual Mockup -->
+        <div class="hero__visual">
+
+          <div class="hero__float-badge hero__float-badge--1" aria-hidden="true">
+            <span class="emoji">🏆</span> Nível 7 Alcançado!
+          </div>
+
+          <div class="hero__float-badge hero__float-badge--2" aria-hidden="true">
+            <span class="emoji">⚡</span> +50 XP Ganhos!
+          </div>
+
+          <div class="hero__visual-card">
+            <div class="hero__mockup-header">
+              <div class="hero__mockup-dots">
+                <span></span><span></span><span></span>
+              </div>
+              <div class="hero__mockup-title">Curupira · Painel do Aluno</div>
+            </div>
+
+            <div class="mockup-content">
+              <div class="mockup-greeting">Olá de volta, 👋</div>
+              <div class="mockup-user">Thiago · Nível 7</div>
+
+              <div class="mockup-xp-bar">
+                <div class="mockup-xp-fill"></div>
+              </div>
+              <div class="mockup-xp-label">680 / 1000 XP para o próximo nível</div>
+
+              <div class="mockup-tasks">
+                <div class="mockup-task done">
+                  <div class="mockup-task-icon green">♻️</div>
+                  <div class="mockup-task-name">Separar lixo reciclável</div>
+                  <div class="mockup-task-pts">✓ +30</div>
+                </div>
+                <div class="mockup-task done">
+                  <div class="mockup-task-icon amber">💧</div>
+                  <div class="mockup-task-name">Economizar água</div>
+                  <div class="mockup-task-pts">✓ +20</div>
+                </div>
+                <div class="mockup-task">
+                  <div class="mockup-task-icon green">🌱</div>
+                  <div class="mockup-task-name">Cuidar da composteira</div>
+                  <div class="mockup-task-pts">+50 XP</div>
+                </div>
+                <div class="mockup-task">
+                  <div class="mockup-task-icon violet">⚡</div>
+                  <div class="mockup-task-name">Reduzir consumo de energia</div>
+                  <div class="mockup-task-pts">+25 XP</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       ABOUT
+  ══════════════════════════════════════════════ -->
+  <section class="section about" id="sobre">
+    <div class="container">
+      <div class="grid-2">
+
+        <div class="about__content reveal">
+          <span class="section-label">O Projeto</span>
+          <h2 class="section-title">Uma plataforma onde missões sustentáveis viram recompensas</h2>
+          <p class="section-subtitle">
+            O Curupira une tecnologia, gamificação e educação ambiental para transformar
+            obrigações escolares em desafios estimulantes — com pontos, recompensas e um
+            pet virtual que cresce com cada conquista.
+          </p>
+
+          <div class="about__highlights">
+            <div class="about__highlight">
+              <div class="about__highlight-icon">🎮</div>
+              <div>
+                <div class="about__highlight-title">Sistema de Gamificação Completo</div>
+                <div class="about__highlight-text">Pontuação, níveis, emblemas e evolução visual que mantêm os estudantes engajados.</div>
+              </div>
+            </div>
+            <div class="about__highlight">
+              <div class="about__highlight-icon">🌿</div>
+              <div>
+                <div class="about__highlight-title">Tarefas Reais, Impacto Real</div>
+                <div class="about__highlight-text">Compostagem, reciclagem, economia de energia — atividades práticas com impacto na comunidade.</div>
+              </div>
+            </div>
+            <div class="about__highlight">
+              <div class="about__highlight-icon">👩‍🏫</div>
+              <div>
+                <div class="about__highlight-title">Ferramenta para Professores</div>
+                <div class="about__highlight-text">Painel completo para criar, gerenciar e acompanhar o progresso dos alunos nas atividades.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about__visual reveal reveal-delay-2">
+          <div class="about__img-wrap">
+            <div class="about__img-placeholder">
+              <div class="big-icon">🌳</div>
+              <p>Sustentabilidade + Tecnologia</p>
+            </div>
+          </div>
+          <div class="about__badge-float">
+            <div class="value">IoT</div>
+            <div class="label">Compostagem Inteligente</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       ODS
+  ══════════════════════════════════════════════ -->
+  <section class="section ods" id="ods">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Agenda 2030 · ONU</span>
+        <h2 class="section-title reveal">Objetivos de Desenvolvimento Sustentável</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          O Curupira está alinhado a quatro ODS da Agenda 2030, conectando tecnologia
+          educacional às metas globais de sustentabilidade.
+        </p>
+      </div>
+
+      <div class="ods__grid">
+
+        <div class="ods-card ods-card--4 reveal">
+          <div class="ods-card__number">4</div>
+          <div class="ods-card__icon">📚</div>
+          <div class="ods-card__title">Educação de Qualidade</div>
+          <div class="ods-card__desc">Promove aprendizado prático e engajamento em atividades extracurriculares educativas.</div>
+        </div>
+
+        <div class="ods-card ods-card--11 reveal reveal-delay-1">
+          <div class="ods-card__number">11</div>
+          <div class="ods-card__icon">🏙️</div>
+          <div class="ods-card__title">Cidades Sustentáveis</div>
+          <div class="ods-card__desc">Incentiva hábitos sustentáveis no ambiente escolar e doméstico contribuindo para comunidades mais verdes.</div>
+        </div>
+
+        <div class="ods-card ods-card--12 reveal reveal-delay-2">
+          <div class="ods-card__number">12</div>
+          <div class="ods-card__icon">♻️</div>
+          <div class="ods-card__title">Consumo Responsável</div>
+          <div class="ods-card__desc">Tarefas de reciclagem e reaproveitamento de resíduos formam hábitos de consumo consciente.</div>
+        </div>
+
+        <div class="ods-card ods-card--13 reveal reveal-delay-3">
+          <div class="ods-card__number">13</div>
+          <div class="ods-card__icon">🌍</div>
+          <div class="ods-card__title">Ação Climática</div>
+          <div class="ods-card__desc">Economia de energia e compostagem são ações concretas de mitigação dos impactos climáticos.</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FEATURES
+  ══════════════════════════════════════════════ -->
+  <section class="section" id="funcionalidades">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Funcionalidades</span>
+        <h2 class="section-title reveal">Tudo que o Curupira oferece</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Uma plataforma completa para professores e alunos, com módulos integrados
+          que tornam a educação ambiental uma experiência interativa.
+        </p>
+      </div>
+
+      <div class="features__grid">
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon feature-card__icon--green">📊</div>
+          <h3 class="feature-card__title">Painel do Professor</h3>
+          <p class="feature-card__text">
+            Interface dedicada para criar, gerenciar e acompanhar tarefas extracurriculares.
+            Visualize o progresso de cada aluno, valide atividades realizadas e acesse métricas
+            de engajamento em tempo real.
+          </p>
+          <div class="feature-card__tags">
+            <span class="tag">Criação de Tarefas</span>
+            <span class="tag">Gestão de Turmas</span>
+            <span class="tag">Relatórios</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-card__icon feature-card__icon--amber">🎯</div>
+          <h3 class="feature-card__title">Painel do Aluno</h3>
+          <p class="feature-card__text">
+            Ambiente gamificado onde os estudantes visualizam missões disponíveis, acompanham
+            seu progresso, acumulam pontos e desbloqueiam recompensas a cada tarefa concluída.
+          </p>
+          <div class="feature-card__tags">
+            <span class="tag tag--amber">Missões Ativas</span>
+            <span class="tag tag--amber">Histórico</span>
+            <span class="tag tag--amber">Conquistas</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal">
+          <div class="feature-card__icon feature-card__icon--violet">⚡</div>
+          <h3 class="feature-card__title">Sistema de Gamificação</h3>
+          <p class="feature-card__text">
+            Motor de gamificação completo com XP, níveis progressivos, emblemas colecionáveis
+            e rankings. Cada atividade sustentável realizada gera recompensas tangíveis dentro
+            da plataforma.
+          </p>
+          <div class="feature-card__tags">
+            <span class="tag tag--violet">XP & Níveis</span>
+            <span class="tag tag--violet">Emblemas</span>
+            <span class="tag tag--violet">Rankings</span>
+          </div>
+        </div>
+
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-card__icon feature-card__icon--dark">🐾</div>
+          <h3 class="feature-card__title">Pet Virtual</h3>
+          <p class="feature-card__text">
+            Um companheiro virtual que cresce, evolui e muda de aparência conforme o aluno
+            completa tarefas sustentáveis. Elemento central de retenção e identidade
+            personalizada na plataforma.
+          </p>
+          <div class="feature-card__tags">
+            <span class="tag tag--dark">Customização</span>
+            <span class="tag tag--dark">Evolução Visual</span>
+            <span class="tag tag--dark">Identidade</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       MVP / ARQUITETURA
+  ══════════════════════════════════════════════ -->
+  <section class="section mvp" id="mvp">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Arquitetura Técnica</span>
+        <h2 class="section-title reveal">Estrutura do MVP</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Desenvolvimento organizado em sprints com tecnologias modernas e arquitetura
+          escalável para suportar múltiplas escolas e usuários.
+        </p>
+      </div>
+
+      <div class="mvp__arch reveal">
+        <div class="arch-title">Stack Tecnológica · Curupira MVP</div>
+
+        <div class="arch-layers">
+
+          <div class="arch-layer">
+            <div class="arch-layer__icon">📱</div>
+            <div class="arch-layer__name">Frontend / App</div>
+            <div class="arch-layer__items">
+              <span class="arch-tag arch-tag--green">Flutter</span>
+              <span class="arch-tag arch-tag--green">React Native</span>
+              <span class="arch-tag">Figma Prototypes</span>
+              <span class="arch-tag">HTML5 · CSS3</span>
+            </div>
+          </div>
+
+          <div class="arch-connector" aria-hidden="true">↕</div>
+
+          <div class="arch-layer">
+            <div class="arch-layer__icon">⚙️</div>
+            <div class="arch-layer__name">Backend / API</div>
+            <div class="arch-layer__items">
+              <span class="arch-tag arch-tag--amber">Firebase</span>
+              <span class="arch-tag arch-tag--amber">REST API</span>
+              <span class="arch-tag">Autenticação JWT</span>
+              <span class="arch-tag">HTTPS · TCP/IP</span>
+            </div>
+          </div>
+
+          <div class="arch-connector" aria-hidden="true">↕</div>
+
+          <div class="arch-layer">
+            <div class="arch-layer__icon">🗄️</div>
+            <div class="arch-layer__name">Banco de Dados</div>
+            <div class="arch-layer__items">
+              <span class="arch-tag arch-tag--violet">Firestore</span>
+              <span class="arch-tag arch-tag--violet">DBeaver</span>
+              <span class="arch-tag">Modelo Estrela</span>
+              <span class="arch-tag">Cloud Storage</span>
+            </div>
+          </div>
+
+          <div class="arch-connector" aria-hidden="true">↕</div>
+
+          <div class="arch-layer">
+            <div class="arch-layer__icon">🌿</div>
+            <div class="arch-layer__name">Módulo IoT</div>
+            <div class="arch-layer__items">
+              <span class="arch-tag arch-tag--green">Arduino</span>
+              <span class="arch-tag arch-tag--green">Sensores</span>
+              <span class="arch-tag">Tinkercad Sim.</span>
+              <span class="arch-tag">Compostagem</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="mvp__sprints">
+        <div class="sprint-card reveal">
+          <div class="sprint-card__num">Sprint 01</div>
+          <div class="sprint-card__title">Design & UI/UX</div>
+          <div class="sprint-card__text">Prototipação no Figma, identidade visual, fluxo de telas, design das missões e perfil do aluno.</div>
+        </div>
+        <div class="sprint-card reveal reveal-delay-1">
+          <div class="sprint-card__num">Sprint 02</div>
+          <div class="sprint-card__title">Core Tecnológico</div>
+          <div class="sprint-card__text">Banco de dados, cadastro de escolas e alunos, estrutura das atividades extracurriculares.</div>
+        </div>
+        <div class="sprint-card reveal reveal-delay-2">
+          <div class="sprint-card__num">Sprint 03</div>
+          <div class="sprint-card__title">Gamificação & Módulo Bônus</div>
+          <div class="sprint-card__text">Motor de pontuação, pet virtual, tutorial interativo da composteira inteligente.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       TEAM
+  ══════════════════════════════════════════════ -->
+  <section class="section team" id="equipe">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">A Equipe</span>
+        <h2 class="section-title reveal">Quem está por trás do Curupira</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Estudantes do curso de Tecnólogo em Análise e Desenvolvimento de Sistemas
+          do IFSP Campus Pirituba, movidos pela inovação e sustentabilidade.
+        </p>
+      </div>
+
+      <div class="team__grid">
+
+        <div class="team-card reveal">
+          <div class="team-card__avatar">B</div>
+          <div class="team-card__name">Bruno Soares</div>
+          <div class="team-card__role">Desenvolvimento & IoT</div>
+          <div class="team-card__id">Projeto Curupira · 2025</div>
+        </div>
+
+        <div class="team-card reveal reveal-delay-1">
+          <div class="team-card__avatar">M</div>
+          <div class="team-card__name">Matheus Zanqueta</div>
+          <div class="team-card__role">Design & Prototipação</div>
+          <div class="team-card__id">PT3035875</div>
+        </div>
+
+        <div class="team-card reveal reveal-delay-2">
+          <div class="team-card__avatar">W</div>
+          <div class="team-card__name">Washington Sousa</div>
+          <div class="team-card__role">Arquitetura & Backend</div>
+          <div class="team-card__id">PT303755X</div>
+        </div>
+
+      </div>
+
+      <div class="team__institution reveal">
+        <div class="team__institution-name">Instituto Federal de São Paulo · Campus Pirituba</div>
+        <div class="team__institution-sub">Tecnólogo em Análise e Desenvolvimento de Sistemas · PTBPEX2 · 2025</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       CTA
+  ══════════════════════════════════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="section-label">Próximos Passos</span>
+      <h2 class="section-title reveal">Pronto para explorar o Curupira?</h2>
+      <p class="section-subtitle reveal reveal-delay-1">
+        Veja a demonstração do MVP, conheça os protótipos e entenda como a
+        gamificação pode transformar a educação ambiental.
+      </p>
+      <div class="cta-section__actions reveal reveal-delay-2">
+        <a href="demonstracao.html" class="btn btn-amber btn-lg">
+          🚀 Explorar Demonstração
+        </a>
+        <a href="contato.html" class="btn btn-ghost btn-lg">
+          Falar com a Equipe
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════
+       FOOTER
+  ══════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo">
+            <div class="navbar__logo-icon">🌿</div>
+            Curupira
+          </a>
+          <p class="footer__tagline">
+            Transformando sustentabilidade em experiência gamificada.
+            Um projeto de extensão do IFSP Pirituba.
+          </p>
+          <div class="footer__social">
+            <a href="#" class="social-icon" aria-label="Instagram">📷</a>
+            <a href="#" class="social-icon" aria-label="LinkedIn">💼</a>
+            <a href="#" class="social-icon" aria-label="GitHub">🐙</a>
+            <a href="#" class="social-icon" aria-label="YouTube">▶</a>
+          </div>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Navegação</div>
+          <ul class="footer__links">
+            <li><a href="index.html"        class="footer__link">Home</a></li>
+            <li><a href="sobre.html"        class="footer__link">Sobre o Projeto</a></li>
+            <li><a href="demonstracao.html" class="footer__link">Demonstração</a></li>
+            <li><a href="contato.html"      class="footer__link">Contato</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Projeto</div>
+          <ul class="footer__links">
+            <li><a href="sobre.html#funcionalidades" class="footer__link">Funcionalidades</a></li>
+            <li><a href="sobre.html#mvp"             class="footer__link">Arquitetura MVP</a></li>
+            <li><a href="sobre.html#ods"             class="footer__link">ODS Contempladas</a></li>
+            <li><a href="demonstracao.html"          class="footer__link">Protótipos Figma</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <div class="footer__col-title">Institucional</div>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">IFSP Pirituba</a></li>
+            <li><a href="#" class="footer__link">ADS — PTBPEX2</a></li>
+            <li><a href="#" class="footer__link">Prof. Luiz R. Albano Jr.</a></li>
+            <li><a href="#" class="footer__link">GITES</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer__bottom">
+        <div class="footer__copyright">
+          © 2025 Projeto Curupira · IFSP Campus Pirituba. Todos os direitos reservados.
+        </div>
+        <div class="footer__made">
+          Feito com <span>♥</span> por Bruno, Matheus & Washington
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

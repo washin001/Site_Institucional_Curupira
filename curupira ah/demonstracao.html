@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Demonstração do MVP do Projeto Curupira — protótipos, fluxos e arquitetura do sistema." />
+  <title>Demonstração · Curupira</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌿</text></svg>" />
+  <style>
+    /* ── Extra styles for demo page ── */
+    .demo-screen {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      min-height: 380px;
+    }
+
+    .demo-screen__header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+
+    .demo-screen__avatar {
+      width: 40px; height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--green), var(--green-dark));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    .demo-screen__name { font-weight: 700; color: white; font-size: 0.92rem; }
+    .demo-screen__sub  { font-size: 0.75rem; color: rgba(255,255,255,0.4); }
+
+    .demo-stat-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .demo-stat-box {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      padding: 0.9rem;
+      text-align: center;
+    }
+
+    .demo-stat-box .val {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: var(--green);
+    }
+
+    .demo-stat-box .lbl {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.4);
+      margin-top: 0.2rem;
+    }
+
+    .demo-task-list { display: flex; flex-direction: column; gap: 0.5rem; }
+
+    .demo-task-row {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: var(--radius-md);
+      padding: 0.8rem 1rem;
+    }
+
+    .demo-task-row .ico { font-size: 1rem; }
+    .demo-task-row .name { flex: 1; font-size: 0.83rem; color: rgba(255,255,255,0.75); font-weight: 500; }
+    .demo-task-row .status { font-size: 0.72rem; font-weight: 700; }
+    .demo-task-row .status.done  { color: var(--green-light); }
+    .demo-task-row .status.open  { color: var(--amber); }
+
+    .teacher-list { display: flex; flex-direction: column; gap: 0.6rem; }
+
+    .teacher-task-row {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-md);
+      padding: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .teacher-task-row .task-info { flex: 1; }
+    .teacher-task-row .task-name { font-size: 0.88rem; font-weight: 700; color: white; }
+    .teacher-task-row .task-meta { font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-top: 0.2rem; }
+    .teacher-task-row .task-badge {
+      font-size: 0.72rem; font-weight: 700; padding: 0.3rem 0.7rem;
+      border-radius: 50px; background: rgba(0,157,37,0.15); color: var(--green-light);
+    }
+
+    .pet-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .pet-display {
+      text-align: center;
+      padding: 2rem;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: var(--radius-xl);
+    }
+
+    .pet-emoji { font-size: 5rem; display: block; margin-bottom: 0.75rem; animation: floatBadge 4s ease-in-out infinite; }
+    .pet-name  { font-weight: 700; color: white; font-size: 1.1rem; margin-bottom: 0.25rem; }
+    .pet-level { font-size: 0.78rem; color: var(--green-light); font-weight: 600; }
+
+    .pet-stats { display: flex; flex-direction: column; gap: 0.75rem; }
+
+    .pet-stat-bar { }
+    .pet-stat-label {
+      display: flex; justify-content: space-between;
+      font-size: 0.75rem; font-weight: 600;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 0.3rem;
+    }
+    .pet-stat-track {
+      height: 6px; background: rgba(255,255,255,0.07); border-radius: 50px; overflow: hidden;
+    }
+    .pet-stat-fill {
+      height: 100%; border-radius: 50px;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .metric-card {
+      background: var(--white);
+      border: 1px solid var(--gray-200);
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .metric-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--green);
+    }
+
+    .metric-card__icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .metric-card__value {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 900;
+      color: var(--green);
+      margin-bottom: 0.25rem;
+    }
+    .metric-card__label { font-size: 0.83rem; color: var(--gray-600); font-weight: 500; }
+    .metric-card__desc  { font-size: 0.75rem; color: var(--gray-400); margin-top: 0.5rem; }
+
+    @media (max-width: 768px) {
+      .demo-stat-row { grid-template-columns: 1fr 1fr; }
+      .pet-section   { grid-template-columns: 1fr; }
+      .metrics-grid  { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar__inner">
+        <a href="index.html" class="navbar__logo">
+          <div class="navbar__logo-icon">🌿</div>
+          Curupira
+        </a>
+        <ul class="navbar__nav">
+          <li><a href="index.html"        class="nav-link">Home</a></li>
+          <li><a href="sobre.html"        class="nav-link">Sobre</a></li>
+          <li><a href="demonstracao.html" class="nav-link">Demonstração</a></li>
+          <li><a href="contato.html"      class="nav-link">Contato</a></li>
+        </ul>
+        <a href="contato.html" class="btn btn-primary navbar__cta">Conheça o Projeto</a>
+        <button class="hamburger" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Nav -->
+  <nav class="mobile-nav">
+    <a href="index.html"        class="nav-link">Home</a>
+    <a href="sobre.html"        class="nav-link">Sobre</a>
+    <a href="demonstracao.html" class="nav-link">Demonstração</a>
+    <a href="contato.html"      class="nav-link">Contato</a>
+    <a href="contato.html" class="btn btn-primary btn-lg">Conheça o Projeto</a>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="page-hero">
+    <div class="container">
+      <span class="section-label">MVP · Demonstração</span>
+      <h1 class="section-title reveal">Explore o Curupira em ação</h1>
+      <p class="section-subtitle reveal reveal-delay-1">
+        Painéis interativos que simulam as principais telas do aplicativo —
+        Aluno, Professor e Pet Virtual.
+      </p>
+    </div>
+  </section>
+
+  <!-- DEMO INTERACTIVE -->
+  <section class="section">
+    <div class="container">
+
+      <div class="demo-frame reveal">
+        <!-- Tabs -->
+        <div class="demo-tabs" role="tablist">
+          <button class="demo-tab active" data-tab="aluno"     role="tab">🎯 Painel do Aluno</button>
+          <button class="demo-tab"        data-tab="professor" role="tab">📊 Painel do Professor</button>
+          <button class="demo-tab"        data-tab="pet"       role="tab">🐾 Pet Virtual</button>
+        </div>
+
+        <!-- Painel Aluno -->
+        <div class="demo-panel active demo-screen" data-tab="aluno">
+          <div class="demo-screen__header">
+            <div class="demo-screen__avatar">🧑‍🎓</div>
+            <div>
+              <div class="demo-screen__name">Thiago · Nível 7</div>
+              <div class="demo-screen__sub">Aluno · IFSP Pirituba</div>
+            </div>
+          </div>
+
+          <div class="demo-stat-row">
+            <div class="demo-stat-box">
+              <div class="val">680</div>
+              <div class="lbl">XP Total</div>
+            </div>
+            <div class="demo-stat-box">
+              <div class="val" style="color: var(--amber);">12</div>
+              <div class="lbl">Tarefas Feitas</div>
+            </div>
+            <div class="demo-stat-box">
+              <div class="val" style="color: #C084FC;">4</div>
+              <div class="lbl">Emblemas</div>
+            </div>
+          </div>
+
+          <div class="demo-task-list">
+            <div style="font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Missões Desta Semana</div>
+            <div class="demo-task-row">
+              <span class="ico">♻️</span>
+              <span class="name">Separar lixo reciclável em casa</span>
+              <span class="status done">✓ Concluída</span>
+            </div>
+            <div class="demo-task-row">
+              <span class="ico">💧</span>
+              <span class="name">Economizar água por 1 dia</span>
+              <span class="status done">✓ Concluída</span>
+            </div>
+            <div class="demo-task-row">
+              <span class="ico">🌱</span>
+              <span class="name">Cuidar da composteira inteligente</span>
+              <span class="status open">Em andamento</span>
+            </div>
+            <div class="demo-task-row">
+              <span class="ico">⚡</span>
+              <span class="name">Reduzir consumo de energia</span>
+              <span class="status open">Disponível</span>
+            </div>
+            <div class="demo-task-row">
+              <span class="ico">🌿</span>
+              <span class="name">Plantar uma muda</span>
+              <span class="status open">Disponível</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Painel Professor -->
+        <div class="demo-panel demo-screen" data-tab="professor">
+          <div class="demo-screen__header">
+            <div class="demo-screen__avatar">👩‍🏫</div>
+            <div>
+              <div class="demo-screen__name">Prof. Albano</div>
+              <div class="demo-screen__sub">Gerenciamento de Turmas · PTBPEX2</div>
+            </div>
+          </div>
+
+          <div class="demo-stat-row" style="margin-bottom: 1.5rem;">
+            <div class="demo-stat-box">
+              <div class="val">28</div>
+              <div class="lbl">Alunos Ativos</div>
+            </div>
+            <div class="demo-stat-box">
+              <div class="val" style="color: var(--amber);">6</div>
+              <div class="lbl">Tarefas Abertas</div>
+            </div>
+            <div class="demo-stat-box">
+              <div class="val" style="color: var(--green-light);">78%</div>
+              <div class="lbl">Taxa de Conclusão</div>
+            </div>
+          </div>
+
+          <div class="teacher-list">
+            <div style="font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.25rem;">Tarefas Recentes</div>
+            <div class="teacher-task-row">
+              <div class="task-info">
+                <div class="task-name">Coleta de Resíduos Orgânicos</div>
+                <div class="task-meta">2 dias · 22/28 alunos concluíram</div>
+              </div>
+              <div class="task-badge">Ativa</div>
+            </div>
+            <div class="teacher-task-row">
+              <div class="task-info">
+                <div class="task-name">Quiz Ecológico</div>
+                <div class="task-meta">1 dia · 28/28 alunos concluíram</div>
+              </div>
+              <div class="task-badge" style="background: rgba(219,180,7,0.15); color: var(--amber-light);">Encerrada</div>
+            </div>
+            <div class="teacher-task-row">
+              <div class="task-info">
+                <div class="task-name">Cartaz sobre Reciclagem</div>
+                <div class="task-meta">3 dias · 15/28 alunos concluíram</div>
+              </div>
+              <div class="task-badge">Ativa</div>
+            </div>
+            <div class="teacher-task-row">
+              <div class="task-info">
+                <div class="task-name">Economia de Energia</div>
+                <div class="task-meta">Começa amanhã · 0/28 alunos</div>
+              </div>
+              <div class="task-badge" style="background: rgba(106,16,158,0.15); color: #C084FC;">Agendada</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pet Virtual -->
+        <div class="demo-panel demo-screen" data-tab="pet">
+          <div class="pet-section">
+            <div class="pet-display">
+              <span class="pet-emoji">🦔</span>
+              <div class="pet-name">Caramelo</div>
+              <div class="pet-level">Nível 5 · Guardião das Florestas</div>
+            </div>
+
+            <div class="pet-stats">
+              <div style="font-size: 0.72rem; font-weight: 700; color: rgba(255,255,255,0.35); text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Atributos do Pet</div>
+
+              <div class="pet-stat-bar">
+                <div class="pet-stat-label"><span>🌱 Sustentabilidade</span><span>82%</span></div>
+                <div class="pet-stat-track">
+                  <div class="pet-stat-fill" style="width: 82%; background: linear-gradient(90deg, var(--green), var(--green-light));"></div>
+                </div>
+              </div>
+
+              <div class="pet-stat-bar">
+                <div class="pet-stat-label"><span>⚡ Energia</span><span>65%</span></div>
+                <div class="pet-stat-track">
+                  <div class="pet-stat-fill" style="width: 65%; background: linear-gradient(90deg, var(--amber), var(--amber-light));"></div>
+                </div>
+              </div>
+
+              <div class="pet-stat-bar">
+                <div class="pet-stat-label"><span>💧 Água</span><span>91%</span></div>
+                <div class="pet-stat-track">
+                  <div class="pet-stat-fill" style="width: 91%; background: linear-gradient(90deg, #3B82F6, #60A5FA);"></div>
+                </div>
+              </div>
+
+              <div class="pet-stat-bar">
+                <div class="pet-stat-label"><span>♻️ Reciclagem</span><span>74%</span></div>
+                <div class="pet-stat-track">
+                  <div class="pet-stat-fill" style="width: 74%; background: linear-gradient(90deg, #C084FC, #A855F7);"></div>
+                </div>
+              </div>
+
+              <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.07);">
+                <div style="font-size: 0.75rem; color: rgba(255,255,255,0.4); margin-bottom: 0.5rem;">Próxima evolução em</div>
+                <div style="display: flex; gap: 0.5rem;">
+                  <div style="flex: 1; text-align: center; background: rgba(0,157,37,0.1); border: 1px solid rgba(0,157,37,0.2); border-radius: 8px; padding: 0.5rem;">
+                    <div style="font-weight: 700; color: var(--green); font-size: 1.1rem;">3</div>
+                    <div style="font-size: 0.65rem; color: rgba(255,255,255,0.3);">Tarefas</div>
+                  </div>
+                  <div style="flex: 1; text-align: center; background: rgba(219,180,7,0.1); border: 1px solid rgba(219,180,7,0.2); border-radius: 8px; padding: 0.5rem;">
+                    <div style="font-weight: 700; color: var(--amber); font-size: 1.1rem;">320</div>
+                    <div style="font-size: 0.65rem; color: rgba(255,255,255,0.3);">XP Restante</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Canva Link -->
+      <div style="margin-top: 2rem; text-align: center;" class="reveal">
+        <p style="font-size: 0.88rem; color: var(--gray-600); margin-bottom: 1rem;">
+          Acesse a apresentação completa do projeto no Canva:
+        </p>
+        <a href="https://www.canva.com/design/DAGwqDx0p5U/PHKTuCO03f5JJyNsnZVvLw/edit"
+           target="_blank" rel="noopener noreferrer"
+           class="btn btn-outline">
+          🎨 Abrir Apresentação no Canva →
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MÉTRICAS -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="text-center">
+        <span class="section-label">Métricas de Sucesso</span>
+        <h2 class="section-title reveal">O que o Curupira vai medir</h2>
+        <p class="section-subtitle reveal reveal-delay-1">
+          Indicadores-chave que validam o impacto e engajamento da plataforma
+          junto aos estudantes e professores.
+        </p>
+      </div>
+
+      <div class="metrics-grid">
+        <div class="metric-card reveal">
+          <div class="metric-card__icon">📈</div>
+          <div class="metric-card__value">DAU</div>
+          <div class="metric-card__label">Usuários Ativos Diários</div>
+          <div class="metric-card__desc">Frequência com que estudantes retornam para novas missões.</div>
+        </div>
+        <div class="metric-card reveal reveal-delay-1">
+          <div class="metric-card__icon">✅</div>
+          <div class="metric-card__value">≥80%</div>
+          <div class="metric-card__label">Taxa de Conclusão</div>
+          <div class="metric-card__desc">Porcentagem de tarefas extracurriculares finalizadas pelos alunos.</div>
+        </div>
+        <div class="metric-card reveal reveal-delay-2">
+          <div class="metric-card__icon">🌿</div>
+          <div class="metric-card__value">NPS</div>
+          <div class="metric-card__label">Satisfação dos Usuários</div>
+          <div class="metric-card__desc">Net Promoter Score medindo experiência e recomendação da plataforma.</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <div class="container">
+      <span class="section-label">Quer saber mais?</span>
+      <h2 class="section-title reveal">Entre em contato com a equipe</h2>
+      <p class="section-subtitle reveal reveal-delay-1">Dúvidas, sugestões ou parceria? Fale com o time do Curupira.</p>
+      <div class="cta-section__actions reveal reveal-delay-2">
+        <a href="contato.html" class="btn btn-amber btn-lg">📩 Entrar em Contato</a>
+        <a href="sobre.html"   class="btn btn-ghost btn-lg">Saiba Mais</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div class="footer__brand">
+          <a href="index.html" class="navbar__logo">
+            <div class="navbar__logo-icon">🌿</div>
+            Curupira
+          </a>
+          <p class="footer__tagline">Transformando sustentabilidade em experiência gamificada. Um projeto de extensão do IFSP Pirituba.</p>
+          <div class="footer__social">
+            <a href="#" class="social-icon">📷</a>
+            <a href="#" class="social-icon">💼</a>
+            <a href="#" class="social-icon">🐙</a>
+            <a href="#" class="social-icon">▶</a>
+          </div>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Navegação</div>
+          <ul class="footer__links">
+            <li><a href="index.html"        class="footer__link">Home</a></li>
+            <li><a href="sobre.html"        class="footer__link">Sobre o Projeto</a></li>
+            <li><a href="demonstracao.html" class="footer__link">Demonstração</a></li>
+            <li><a href="contato.html"      class="footer__link">Contato</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Projeto</div>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">Funcionalidades</a></li>
+            <li><a href="#" class="footer__link">Arquitetura MVP</a></li>
+            <li><a href="#" class="footer__link">ODS Contempladas</a></li>
+            <li><a href="#" class="footer__link">Protótipos Figma</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <div class="footer__col-title">Institucional</div>
+          <ul class="footer__links">
+            <li><a href="#" class="footer__link">IFSP Pirituba</a></li>
+            <li><a href="#" class="footer__link">ADS — PTBPEX2</a></li>
+            <li><a href="#" class="footer__link">Prof. Luiz R. Albano Jr.</a></li>
+            <li><a href="#" class="footer__link">GITES</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__copyright">© 2025 Projeto Curupira · IFSP Campus Pirituba. Todos os direitos reservados.</div>
+        <div class="footer__made">Feito com <span>♥</span> por Bruno, Matheus & Washington</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
